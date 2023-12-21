@@ -8,10 +8,7 @@ module.exports = {
     alias: { fd: 'docs: fix typos' },
     messages: {
       type: '选择你要提交的类型 :',
-      scope: '选择一个提交范围（可选）:',
-      customScope: '请输入自定义的提交范围 :',
       subject: '填写简短精炼的变更描述 :\n',
-      body: '填写更加详细的变更描述（可选）。使用 "|" 换行 :\n',
       breaking: '列举非兼容性重大的变更（可选）。使用 "|" 换行 :\n',
       footerPrefixesSelect: '选择关联issue前缀（可选）:',
       customFooterPrefix: '输入自定义issue前缀 :',
@@ -38,18 +35,14 @@ module.exports = {
     useAI: false,
     aiNumber: 1,
     themeColorCode: '',
-    scopes: [],
-    allowCustomScopes: true,
-    allowEmptyScopes: true,
-    customScopesAlign: 'bottom',
-    customScopesAlias: '以上都不是？我要自定义',
-    emptyScopesAlias: '跳过',
     upperCaseSubject: false,
     markBreakingChangeMode: false,
     allowBreakingChanges: ['feat', 'fix'],
     breaklineNumber: 100,
     breaklineChar: '|',
-    skipQuestions: [],
+    skipQuestions: [
+      'scope', 'body', 'breaking'
+    ],
     issuePrefixes: [
       // 如果使用 gitee 作为开发管理
       { value: 'link', name: 'link:     链接 ISSUES 进行中' },
@@ -64,10 +57,7 @@ module.exports = {
     maxHeaderLength: Infinity,
     maxSubjectLength: Infinity,
     minSubjectLength: 0,
-    scopeOverrides: undefined,
-    defaultBody: '',
     defaultIssues: '',
-    defaultScope: '',
     defaultSubject: ''
   }
 }
