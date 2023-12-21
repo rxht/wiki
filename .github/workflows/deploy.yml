@@ -44,7 +44,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Lint
-        run: echo ${{ github.event.pull_request }}
+        run: echo ${{ github.event.pull_request.title }}
       - name: Build with VitePress
         run: |
           pnpm run build
