@@ -1,17 +1,24 @@
+# OS
+.DS_Store
+
+
 # Build and Release Folders
 bin-debug/
 bin-release/
 [Oo]bj/
-[Bb]in/
+[Dd]ist/
 
 # Other files and folders
 .settings/
+.history/
+node_modules/
 
 # Executables
 *.swf
 *.air
 *.ipa
 *.apk
+*.log
 
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
