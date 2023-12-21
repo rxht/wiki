@@ -13,6 +13,7 @@ bin-release/
 .history/
 node_modules/
 .vitepress/cache/
+docs/
 
 # Executables
 *.swf
