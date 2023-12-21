@@ -26,32 +26,15 @@ module.exports = {
     ],
     useEmoji: false,
     emojiAlign: 'center',
-    useAI: false,
-    aiNumber: 1,
     themeColorCode: '',
     upperCaseSubject: false,
-    markBreakingChangeMode: false,
-    allowBreakingChanges: ['feat', 'fix'],
-    breaklineNumber: 100,
-    breaklineChar: '|',
     skipQuestions: [
       'scope', 'body', 'breaking', 'footerPrefix', 'footer'
     ],
-    issuePrefixes: [
-      // 如果使用 gitee 作为开发管理
-      { value: 'link', name: 'link:     链接 ISSUES 进行中' },
-      { value: 'closed', name: 'closed:   标记 ISSUES 已完成' }
-    ],
-    customIssuePrefixAlign: 'top',
-    emptyIssuePrefixAlias: '跳过',
-    customIssuePrefixAlias: '自定义前缀',
-    allowCustomIssuePrefix: true,
-    allowEmptyIssuePrefix: true,
     confirmColorize: true,
     maxHeaderLength: Infinity,
     maxSubjectLength: Infinity,
     minSubjectLength: 0,
-    defaultIssues: '',
     defaultSubject: ''
   }
 }
