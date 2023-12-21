@@ -43,6 +43,8 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install
+      - name: Lint
+        run: echo ${{ github.event.pull_request }}
       - name: Build with VitePress
         run: |
           pnpm run build
