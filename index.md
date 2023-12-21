@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "RXHT"
-  text: "博客"
+  text: "测试博客是否进行更新"
   tagline: My great project tagline
   actions:
     - theme: brand
