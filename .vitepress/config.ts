@@ -4,6 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "RXHT",
   description: "博客",
+  base: process.env.NODE_ENV === 'production' ? '/wiki/' : '/',
   outDir: 'docs',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
