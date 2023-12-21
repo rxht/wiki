@@ -7,13 +7,17 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview",
+    "cz": "git add . && git czg",
+    "release": "bumpp"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MPL-2.0 license",
   "devDependencies": {
     "@types/node": "^20.10.5",
+    "bumpp": "^9.2.1",
+    "czg": "^1.8.0",
     "vitepress": "1.0.0-rc.32"
   }
 }

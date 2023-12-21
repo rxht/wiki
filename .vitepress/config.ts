@@ -1,11 +1,18 @@
 import { defineConfig } from 'vitepress'
+import { name, license } from '../package.json'
+
+const isProd = process.env.NODE_ENV === 'production'
+const base = isProd ? `/${name}/` : '/'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "RXHT",
   description: "博客",
-  base: process.env.NODE_ENV === 'production' ? '/wiki/' : '/',
+  head: [['link', { rel: 'icon', href: `${base}icon.ico` }]],
+  base,
   outDir: 'docs',
+  lastUpdated: true,
+  cleanUrls: true,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -24,11 +31,11 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/rxht/wiki' }
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
+      message: `Released under the ${license} License.`,
       copyright: 'Copyright © 2019-present Evan You'
     },
   }
