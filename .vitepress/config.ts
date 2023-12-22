@@ -48,6 +48,7 @@ export default defineConfig({
 		sidebar: {
 			"/font-end/": { base: "/font-end/", items: sidebarFontEnd() },
 			"/back-end/": { base: "/back-end/", items: sidebarBackEnd() },
+			"/fable/": { base: "/fable/", items: sidebarFable() },
 		},
 		// 编辑链接允许您显示用于编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面的链接。有关更多详细信息，请参阅默认主题：编辑链接。
 		editLink: {
@@ -72,6 +73,7 @@ function nav(): DefaultTheme.NavItem[] {
 	return [
 		{ text: "前端手册", link: "/font-end/" },
 		{ text: "后端手册", link: "/back-end/" },
+		{ text: "合集", link: "/compilation/" },
 	];
 }
 
@@ -131,4 +133,24 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
  */
 function sidebarBackEnd(): DefaultTheme.SidebarItem[] {
 	return [];
+}
+
+/**
+ * @description 寓言左侧目录结构
+ * @author rxh
+ * @date 2023-12-22
+ * @return {*}  {DefaultTheme.SidebarItem[]}
+ */
+function sidebarFable(): DefaultTheme.SidebarItem[] {
+	return [
+		{
+			text: "0-3岁",
+			items: [
+				{
+					text: "故事01",
+					link: "test",
+				}
+			]
+		}
+	]
 }
