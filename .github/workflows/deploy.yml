@@ -36,15 +36,8 @@ jobs:
           fetch-depth: 0
       # 检查是否需要更新版本
       - name: Check if version update is needed
-        id: version-check
-        run: |
-          latest_commit_message=$(git log --pretty=format:%s -1)
-          if [[ !startsWith($latest_commit_message, 'chore: release v') ]]; then
-            echo "Skip version updates triggered by automatic submission"
-            exit 78
-          else
-            echo "Version updates, publishing blogs"
-          fi
+        if: startsWith($(git log --pretty=format:%s -1), 'chore') == false
+        run: exit 78
       # 下载 pnpm 包
       - name: Install pnpm
         uses: pnpm/action-setup@v2
