@@ -23,5 +23,9 @@
     "bumpp": "^9.2.1",
     "czg": "^1.8.0",
     "vitepress": "1.0.0-rc.32"
+  },
+  "dependencies": {
+    "echarts": "^5.4.3",
+    "vue": "^3.3.13"
   }
 }

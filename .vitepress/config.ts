@@ -49,6 +49,7 @@ export default defineConfig({
 			"/font-end/": { base: "/font-end/", items: sidebarFontEnd() },
 			"/back-end/": { base: "/back-end/", items: sidebarBackEnd() },
 			"/fable/": { base: "/fable/", items: sidebarFable() },
+			"/echarts/": { base: "/echarts/", items: sidebarEcharts() },
 		},
 		// 编辑链接允许您显示用于编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面的链接。有关更多详细信息，请参阅默认主题：编辑链接。
 		editLink: {
@@ -60,6 +61,11 @@ export default defineConfig({
 			message: `Released under the ${license} License.`,
 			copyright: `Copyright © 2019-${new Date().getFullYear()} ${author}`,
 		},
+	},
+	vite: {
+		ssr: {
+      noExternal: ['echarts'],
+    },
 	},
 });
 
@@ -149,6 +155,20 @@ function sidebarFable(): DefaultTheme.SidebarItem[] {
 				{
 					text: "故事01",
 					link: "test",
+				}
+			]
+		}
+	]
+}
+
+function sidebarEcharts(): DefaultTheme.SidebarItem[] {
+	return [
+		{
+			text: "雷达图",
+			items: [
+				{
+					text: "不等分雷达图",
+					link: "radar/unevenRadar",
 				}
 			]
 		}
