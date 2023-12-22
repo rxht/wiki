@@ -54,7 +54,7 @@ export default defineConfig({
 		// 编辑链接允许您显示用于编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面的链接。有关更多详细信息，请参阅默认主题：编辑链接。
 		editLink: {
 			pattern: `${repository}/edit/main/src/:path`,
-			text: "Edit this page on GitHub",
+			text: "在 GitHub 上编辑本页面",
 		},
 		// 页脚配置。您可以在页脚上添加消息或版权文本，但是，只有当页面不包含侧边栏时才会显示它。这是由于设计方面的考虑。
 		footer: {
@@ -153,14 +153,28 @@ function sidebarFable(): DefaultTheme.SidebarItem[] {
 			text: "0-3岁",
 			items: [
 				{
-					text: "故事01",
-					link: "test",
+					text: "小明钓鱼",
+					link: "0-3/goFishing",
+				},
+				{
+					text: "小明生日",
+					link: "0-3/birthday",
+				},
+				{
+					text: "小明爬山",
+					link: "0-3/mountainClimbing",
 				}
 			]
 		}
 	]
 }
 
+/**
+ * @description Echarts左侧目录结构
+ * @author rxht
+ * @date 2023-12-22
+ * @returns {*}  {DefaultTheme.SidebarItem[]}
+ */
 function sidebarEcharts(): DefaultTheme.SidebarItem[] {
 	return [
 		{

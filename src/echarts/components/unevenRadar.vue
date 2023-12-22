@@ -4,7 +4,8 @@
     <div ref="chart" class="charts"></div>
   </section>
 </template>
-<script land="ts" setup>
+
+<script lang="ts" setup>
 import { ref, onMounted } from "vue";
 import * as echarts from "echarts";
 

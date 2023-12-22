@@ -6,7 +6,9 @@ prev:
 
 # 不均等雷达图
 
-<unevenRadar />
+<ClientOnly>
+  <unevenRadar />
+</ClientOnly>
 
 ## testing
 
