@@ -39,6 +39,7 @@ jobs:
         id: version-check
         run: |
           latest_commit_message=$(git log --pretty=format:%s -1)
+          echo "latest_commit_message: $latest_commit_message"
           if [[ $latest_commit_message != *"[release]"* ]]; then
             echo "Skip version updates triggered by automatic submission"
             exit 78
