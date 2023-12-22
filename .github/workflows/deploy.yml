@@ -34,16 +34,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-         # 检查是否需要更新版本
+      # 检查是否需要更新版本
       - name: Check if version update is needed
         id: version-check
         run: |
-          # 获取最近的提交信息
           latest_commit_message=$(git log --pretty=format:%s -1)
-          chore: release v1.0.1
-         # 检查提交信息是否包含 [release]，主要用于防止发生任务死循环
-          # 如果最新提交时更新版本号，则无需再触发任务，直接退出
-          if [[ $latest_commit_message == *"[release]"* ]]; then
+          if [[ $latest_commit_message != *"[release]"* ]]; then
             echo "Skip version updates triggered by automatic submission"
             exit 78
           else
