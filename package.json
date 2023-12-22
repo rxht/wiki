@@ -10,6 +10,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
+    "lint": "pnpm dlx @biomejs/biome format . --write",
     "cz": "git add . && git czg",
     "release": "bumpp"
   },

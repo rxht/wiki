@@ -2,5 +2,7 @@
   "cSpell.words": [
     "Pageview",
     "vitepress"
-  ]
+  ],
+  "editor.codeActionsOnSave": {
+  },
 }
