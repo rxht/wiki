@@ -1,5 +1,6 @@
 {
   "name": "wiki",
+  "author": "RXHT[brf9577@163.com]",
   "version": "1.0.4",
   "description": "",
   "main": "index.js",
@@ -13,8 +14,9 @@
     "release": "bumpp"
   },
   "keywords": [],
-  "author": "",
   "license": "MPL-2.0 license",
+  "homepage": "https://rxht.github.io/wiki",
+  "repository": "https://github.com/rxht/wiki",
   "devDependencies": {
     "@types/node": "^20.10.5",
     "bumpp": "^9.2.1",
