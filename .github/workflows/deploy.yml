@@ -38,7 +38,7 @@ jobs:
       - name: Check if version update is needed
         run: |
           latest_commit_message=$(git log --pretty=format:%s -1)
-          if [[startsWith($latest_commit_message, 'chore: release v') == false]]; then
+          if [[ $latest_commit_message != "chore: release v"* ]]; then
             echo "无需进行发布，跳过部署"
             exit 78
           fi
