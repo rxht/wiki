@@ -45,8 +45,6 @@ jobs:
       # 下载 pnpm 包
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
-        with:
-          version: 8.11.0
       # 下载node环境
       - name: Setup Node
         uses: actions/setup-node@v4
