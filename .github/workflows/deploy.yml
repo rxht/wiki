@@ -2,11 +2,11 @@
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
-  # Runs on pushes targeting the default branch
+  # 当主分支执行 push 时触发任务
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # 允许, 从仓库的 Actions 选项卡手动运行当前工作流
   workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
@@ -21,19 +21,40 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# 工作流由一个或多个作业组成，这些作业可以顺序运行，也可以并行运行
 jobs:
   # Build job
   build:
+    # 作业运行的系统环境（运行时环境）
     runs-on: ubuntu-latest
+    # 步骤，表示完成该作业的一些列原子操作/步骤
     steps:
+      # 跳转到当前仓库的$GITHUB_WORKSPACE目录，以便访问仓库中的代码
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
+         # 检查是否需要更新版本
+      - name: Check if version update is needed
+        id: version-check
+        run: |
+          # 获取最近的提交信息
+          latest_commit_message=$(git log --pretty=format:%s -1)
+          chore: release v1.0.1
+         # 检查提交信息是否包含 [release]，主要用于防止发生任务死循环
+          # 如果最新提交时更新版本号，则无需再触发任务，直接退出
+          if [[ $latest_commit_message == *"[release]"* ]]; then
+            echo "Skip version updates triggered by automatic submission"
+            exit 78
+          else
+            echo "Version updates, publishing blogs"
+          fi
+      # 下载 pnpm 包
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
           version: 8.11.0
+      # 下载node环境
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -41,14 +62,15 @@ jobs:
           cache: pnpm
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        # 使用pnpm下载依赖
       - name: Install dependencies
         run: pnpm install
-      - name: Lint
-        run: echo ${{ github.event.pull_request.title }}
+      # build项目
       - name: Build with VitePress
         run: |
           pnpm run build
           touch docs/.nojekyll
+      # 上传build后的文件到github page
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
