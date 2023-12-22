@@ -35,36 +35,36 @@ jobs:
         with:
           fetch-depth: 0
       # 检查是否需要更新版本
-      - name: Check if deployment is necessary
+      - name: 检查是否需要进行部署
         run: |
           latest_commit_message=$(git log --pretty=format:%s -1)
           if [[ $latest_commit_message != "chore: release v"* ]]; then
             echo "无需进行发布，跳过部署"
-            exit 78
+            exit 0
           fi
       # 下载 pnpm 包
-      - name: Install pnpm
+      - name: pnpm 下载
         uses: pnpm/action-setup@v2
         with:
           version: 8.11.0
       # 下载node环境
-      - name: Setup Node
+      - name: node 下载
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: pnpm
-      - name: Setup Pages
+      - name: Pages 下载
         uses: actions/configure-pages@v4
         # 使用pnpm下载依赖
-      - name: Install dependencies
+      - name: 下载项目依赖
         run: pnpm install
       # build项目
-      - name: Build with VitePress
+      - name: 项目打包
         run: |
           pnpm run build
           touch docs/.nojekyll
       # 上传build后的文件到github page
-      - name: Upload artifact
+      - name: 部署
         uses: actions/upload-pages-artifact@v2
         with:
           path: docs
