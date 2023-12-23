@@ -1,6 +1,5 @@
 <template>
   <section class="container">
-    asfasdf45
     <div ref="chart" class="charts"></div>
   </section>
 </template>
@@ -11,52 +10,139 @@ import * as echarts from "echarts";
 
 const chart = ref();
 onMounted(() => {
-  console.log("🚀 ~ file: unevenRadar.vue:10 ~ chart:", chart);
   const myChart = echarts.init(chart.value);
-  console.log("🚀 ~ file: unevenRadar.vue:15 ~ onMounted ~ myChart:", myChart)
+  const baseData: Array<{
+    weight: number;
+    name: string;
+    value: number;
+    angle?: number;
+    lineAngle?: number;
+  }> = [
+      {
+        weight: 10,
+        name: "name01",
+        value: 1.58
+      },
+      {
+        weight: 10,
+        name: "name02",
+        value: -3
+      },
+      {
+        weight: 10,
+        name: "name03",
+        value: 2.2
+      },
+      {
+        weight: 30,
+        name: "name04",
+        value: 3
+      }
+    ]
+  const values = baseData.map(i => i.value)
+  const maxValue = Math.max(...values) + 1 // 此处特意加1
+  const minValue = Math.min(...values) - 1 // 此处特意减1
+
+  let totalWeight = 0
+  for (const item of baseData) {
+    totalWeight += item.weight
+  }
+  const angle = 360 / totalWeight
+  for (let index = 0; index < baseData.length; index++) {
+    const item = baseData[index];
+    item.angle = angle * item.weight
+    if (index === 0) {
+      item.lineAngle = item.angle / 2
+      continue
+    }
+    const prev = baseData[index - 1]
+    const _angle = ((prev.angle ?? 0) + item.angle) / 2
+    item.lineAngle = (prev.lineAngle ?? 0) + _angle
+  }
   myChart.setOption({
-    tooltip: {
-      trigger: "item",
+    title: {
+      left: 'center',
+      text: `min: ${minValue}, max: ${maxValue}`
     },
-    legend: {
-      top: "5%",
-      left: "center",
+    angleAxis: {  // 极坐标系的角度轴。
+      type: 'value',
+      silent: true,
+      startAngle: 90,
+      min: 0,
+      max: 360,
+      clockwise: true,
+      axisLabel: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      splitLine: {
+        show: false
+      }
+    },
+    radiusAxis: { // 极坐标系的径向轴。
+      z: 10,
+      splitNumber: 1,
+      dataMin: minValue,
+      dataMax: maxValue,
+      axisLine: {
+        show: false
+      },
+      axisTick: {
+        show: false
+      },
+      axisLabel: {
+        show: false
+      },
+      splitLine: {
+        lineStyle: {
+          color: ['#333333', 'red'],
+          width: 2
+        }
+      }
+    },
+    polar: {  // 极坐标系，可以用于散点图和折线图。
+      radius: '70%'
     },
     series: [
       {
-        name: "Access From",
-        type: "pie",
-        radius: ["40%", "70%"],
-        avoidLabelOverlap: false,
+        type: 'pie',
+        radius: '70%',
+        startAngle: 90,
+        clockwise: true,
         itemStyle: {
-          borderRadius: 10,
-          borderColor: "#fff",
-          borderWidth: 2,
+          color: 'rgba(255,255,255,0)',
+          borderWidth: 1,
+          borderColor: '#888888'
         },
-        label: {
-          show: false,
-          position: "center",
-        },
-        emphasis: {
-          label: {
-            show: true,
-            fontSize: 40,
-            fontWeight: "bold",
-          },
-        },
-        labelLine: {
-          show: false,
-        },
-        data: [
-          { value: 1048, name: "Search Engine" },
-          { value: 735, name: "Direct" },
-          { value: 580, name: "Email" },
-          { value: 484, name: "Union Ads" },
-          { value: 300, name: "Video Ads" },
-        ],
+        animation: false,
+        silent: true,
+        data: baseData.map((i) => {
+          return {
+            value: i.weight,
+            name: i.name
+          }
+        })
       },
-    ],
+      {
+        coordinateSystem: 'polar',
+        type: 'line',
+        showSymbol: false,
+        areaStyle: {
+          opacity: 0.2,
+          origin: 'start'
+        },
+        lineStyle: {
+          opacity: 0.3
+        },
+        data: [...baseData, {...baseData[0], name: 'firstName'}].map(i => {
+          return [i.value, i.lineAngle]
+        })
+      }
+    ]
   });
+  console.log(myChart.getOption())
 });
 </script>
 <style>
@@ -64,6 +150,7 @@ onMounted(() => {
   width: 800px;
   height: 600px;
 }
+
 .charts {
   width: 100%;
   height: 100%;
