@@ -144,7 +144,7 @@ onMounted(() => {
   });
 });
 </script>
-<style>
+<style scoped>
 .container {
   width: 800px;
   height: 600px;

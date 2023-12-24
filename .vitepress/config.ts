@@ -79,6 +79,7 @@ function nav(): DefaultTheme.NavItem[] {
 	return [
 		{ text: "前端手册", link: "/font-end/" },
 		{ text: "后端手册", link: "/back-end/" },
+		{ text: "UI", link: "../ui/" },
 		{ text: "合集", link: "/compilation/" },
 	];
 }
