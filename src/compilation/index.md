@@ -19,9 +19,12 @@ features:
     link: '../echarts/'
     linkText: 点击查看
 
-  - title: Feature C
+  - title: 数学合集
     icon: 🚀
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: 数学案例
+    link: '../maths/'
+    linkText: 点击查看
+
   - title: Feature A
     icon: 📝
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit

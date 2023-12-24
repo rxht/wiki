@@ -22,6 +22,7 @@
     "@types/node": "^20.10.5",
     "bumpp": "^9.2.1",
     "czg": "^1.8.0",
+    "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "1.0.0-rc.32"
   },
   "dependencies": {

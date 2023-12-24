@@ -52,6 +52,7 @@ export default defineConfig({
 			"/back-end/Matlab/": { base: "/back-end/Matlab/", items: sidebarMatlab() },
 			"/fable/": { base: "/fable/", items: sidebarFable() },
 			"/echarts/": { base: "/echarts/", items: sidebarEcharts() },
+			"/maths/": { base: "/maths/", items: sidebarMaths() },
 		},
 		// 编辑链接允许您显示用于编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面的链接。有关更多详细信息，请参阅默认主题：编辑链接。
 		editLink: {
@@ -69,6 +70,9 @@ export default defineConfig({
       noExternal: ['echarts'],
     },
 	},
+	markdown: {
+		math: true
+	}
 });
 
 /**
@@ -86,6 +90,7 @@ function nav(): DefaultTheme.NavItem[] {
 	];
 }
 
+
 /**
  * @description 前端左侧目录结构
  * @author rxh
@@ -93,45 +98,7 @@ function nav(): DefaultTheme.NavItem[] {
  * @return {*}  {DefaultTheme.SidebarItem[]}
  */
 function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
-	return [
-		{
-			text: "001",
-			items: [
-				{
-					text: "Js基础知识-进阶",
-					link: "basic/js",
-				},
-				{
-					text: "Js基础知识-进阶",
-					link: "basic/js",
-				},
-				{
-					text: "Js基础知识-进阶",
-					link: "basic/js",
-				},
-				{
-					text: "Js基础知识-进阶",
-					link: "basic/js",
-				},
-				{
-					text: "Js基础知识-进阶",
-					link: "basic/js",
-				},
-				{
-					text: "Js基础知识-进阶",
-					link: "basic/js",
-				},
-				{
-					text: "Js基础知识-进阶",
-					link: "basic/js",
-				},
-			],
-		},
-		{
-			text: "002",
-			items: [],
-		},
-	];
+	return [];
 }
 
 /**
@@ -243,6 +210,27 @@ function sidebarEcharts(): DefaultTheme.SidebarItem[] {
 				{
 					text: "不等分雷达图",
 					link: "radar/unevenRadar",
+				}
+			]
+		}
+	]
+}
+
+
+/**
+ * @description 数学左侧目录结构
+ * @author rxht
+ * @date 2023-12-24
+ * @returns {*}  {DefaultTheme.SidebarItem[]}
+ */
+function sidebarMaths(): DefaultTheme.SidebarItem[] {
+	return [
+		{
+			text: "几何学",
+			items: [
+				{
+					text: "内切圆",
+					link: "geometry/inscribedCircle",
 				}
 			]
 		}
