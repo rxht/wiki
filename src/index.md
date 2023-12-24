@@ -11,6 +11,9 @@ hero:
       text: 前端手册
       link: /font-end/
     - theme: alt
+      text: UI组件库
+      link: https://rxht.github.io/ui/
+    - theme: brand
       text: 后端手册
       link: /back-end/
 
