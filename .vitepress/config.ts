@@ -48,6 +48,8 @@ export default defineConfig({
 		sidebar: {
 			"/font-end/": { base: "/font-end/", items: sidebarFontEnd() },
 			"/back-end/": { base: "/back-end/", items: sidebarBackEnd() },
+			"/back-end/Python/": { base: "/back-end/Python/", items: sidebarPython() },
+			"/back-end/Matlab/": { base: "/back-end/Matlab/", items: sidebarMatlab() },
 			"/fable/": { base: "/fable/", items: sidebarFable() },
 			"/echarts/": { base: "/echarts/", items: sidebarEcharts() },
 		},
@@ -139,7 +141,64 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
  * @return {*}  {DefaultTheme.SidebarItem[]}
  */
 function sidebarBackEnd(): DefaultTheme.SidebarItem[] {
-	return [];
+	return [
+		{
+			text: "Python",
+			link: "/Python/",
+		},
+		{
+			text: "Matlab",
+			link: "/Matlab/",
+		}
+	]
+}
+
+/**
+ * @description Python左侧目录结构
+ * @author rxht
+ * @date 2023-12-24
+ * @returns {*}  {DefaultTheme.SidebarItem[]}
+ */
+function sidebarPython(): DefaultTheme.SidebarItem[] {
+	return [
+		{
+			text: "记录",
+			items: [
+				{
+					text: "tkinter实现先弹出选择框后弹出输入框，并得到输入框的值",
+					link: "tkinter/input",
+				},
+				{
+					text: "Python+opencv+tkinter整合demo完成！",
+					link: "tkinter/camera",
+				},
+				{
+					text: "Tensorflow 释放内存",
+					link: "tensorflow/clearMemory",
+				}
+			]
+		}
+	]
+}
+
+/**
+ * @description Matlab左侧目录结构
+ * @author rxht
+ * @date 2023-12-24
+ * @returns {*}  {DefaultTheme.SidebarItem[]}
+ */
+function sidebarMatlab(): DefaultTheme.SidebarItem[] {
+	return [
+		{
+			text: "记录",
+			items: [
+				{
+					text: "香农编码",
+					link: "shannonCoding",
+				}
+			]
+		}
+	]
 }
 
 /**
