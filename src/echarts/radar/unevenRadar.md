@@ -5,15 +5,6 @@ prev:
 ---
 
 # 不均等雷达图
-## 最终输出：
-<ClientOnly>
-  <unevenRadar />
-</ClientOnly>
-
-<script setup>
-import unevenRadar from '../components/unevenRadar.vue'
-</script>
-
 ## 介绍说明
 官方案例中的雷达图均为等分雷达图，即雷达图中的每一项所占比角度均为一致，本案例提供了一种自定义占比角度的雷达图实现方案。最终结果如上图所示。
 
@@ -21,8 +12,18 @@ import unevenRadar from '../components/unevenRadar.vue'
 1. 由于需要实现不等分的情况，所以可以使用饼图来作为雷达图的不均等分的效果
 2. 雷达图的数据则可采用echarts中的折线图[采用极坐标的方案](https://echarts.apache.org/examples/zh/editor.html?c=line-polar)进行实现
 
-## demo
 
+## 最终输出：
+<ClientOnly>
+  <unevenRadar />
+</ClientOnly>
+
+<script setup>
+import { onMounted, ref } from 'vue';
+import unevenRadar from '../components/unevenRadar.vue'
+</script>
+
+源码：
 ```typescript
 const myChart = echarts.init(chart.value);
 const baseData: Array<{
@@ -40,7 +41,7 @@ const baseData: Array<{
     {
       weight: 10,
       name: "name02",
-      value: -3
+      value: 2
     },
     {
       weight: 10,
@@ -99,8 +100,7 @@ myChart.setOption({
     }
   },
   radiusAxis: { // 极坐标系的径向轴。
-    z: 10,
-    splitNumber: 1,
+    z: 1,
     dataMin: minValue,
     dataMax: maxValue,
     axisLine: {
@@ -114,8 +114,7 @@ myChart.setOption({
     },
     splitLine: {
       lineStyle: {
-        color: ['#333333', 'red'],
-        width: 2
+        width: 1
       }
     }
   },
@@ -128,10 +127,11 @@ myChart.setOption({
       radius: '70%',
       startAngle: 90,
       clockwise: true,
+      z: 1,
       itemStyle: {
         color: 'rgba(255,255,255,0)',
         borderWidth: 1,
-        borderColor: '#888888'
+        borderColor: 'rgba(33,33,33,0.5)',
       },
       animation: false,
       silent: true,
@@ -146,14 +146,14 @@ myChart.setOption({
       coordinateSystem: 'polar',
       type: 'line',
       showSymbol: false,
+      z: 2,
       areaStyle: {
-        opacity: 0.2,
+        opacity: 0,
         origin: 'start'
       },
       lineStyle: {
-        opacity: 0.3
+        opacity: 0.5
       },
-      // 此处需要首尾相连，所以再拷贝一份第一个数据到最后一个
       data: [...baseData, {...baseData[0], name: 'firstName'}].map(i => {
         return [i.value, i.lineAngle]
       })

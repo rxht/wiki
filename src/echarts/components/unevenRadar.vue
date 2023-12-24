@@ -26,7 +26,7 @@ onMounted(() => {
       {
         weight: 10,
         name: "name02",
-        value: -3
+        value: 2
       },
       {
         weight: 10,
@@ -82,8 +82,7 @@ onMounted(() => {
       }
     },
     radiusAxis: { // 极坐标系的径向轴。
-      z: 10,
-      splitNumber: 1,
+      z: 1,
       dataMin: minValue,
       dataMax: maxValue,
       axisLine: {
@@ -97,8 +96,7 @@ onMounted(() => {
       },
       splitLine: {
         lineStyle: {
-          color: ['#333333', 'red'],
-          width: 2
+          width: 1
         }
       }
     },
@@ -111,10 +109,11 @@ onMounted(() => {
         radius: '70%',
         startAngle: 90,
         clockwise: true,
+        z: 1,
         itemStyle: {
           color: 'rgba(255,255,255,0)',
           borderWidth: 1,
-          borderColor: '#888888'
+          borderColor: 'rgba(33,33,33,0.5)',
         },
         animation: false,
         silent: true,
@@ -129,12 +128,13 @@ onMounted(() => {
         coordinateSystem: 'polar',
         type: 'line',
         showSymbol: false,
+        z: 2,
         areaStyle: {
-          opacity: 0.2,
+          opacity: 0,
           origin: 'start'
         },
         lineStyle: {
-          opacity: 0.3
+          opacity: 0.5
         },
         data: [...baseData, {...baseData[0], name: 'firstName'}].map(i => {
           return [i.value, i.lineAngle]
@@ -142,7 +142,6 @@ onMounted(() => {
       }
     ]
   });
-  console.log(myChart.getOption())
 });
 </script>
 <style>
