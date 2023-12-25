@@ -116,6 +116,15 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 					link: 'advanced/multithreading'
 				}
 			]
+		},
+		{
+			text: '架构',
+			items: [
+				{
+					text: 'Vue引入原子设计',
+					link: 'architecture/atomDesign'
+				}
+			]
 		}
 	];
 }
