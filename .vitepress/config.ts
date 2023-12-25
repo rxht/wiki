@@ -277,6 +277,10 @@ function sidebarMaths(): DefaultTheme.SidebarItem[] {
 				{
 					text: "内切圆",
 					link: "geometry/inscribedCircle",
+				},
+				{
+					text: "距离&角度",
+					link: "geometry/distanceAndAngle",
 				}
 			]
 		}
