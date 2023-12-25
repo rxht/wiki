@@ -126,6 +126,5 @@ myChart.setOption(options)
 ```
 
 <script setup>
-import { onMounted, ref } from 'vue';
 import dynamicBisection from '../components/dynamicBisection.vue'
 </script>

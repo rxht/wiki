@@ -233,6 +233,15 @@ function sidebarEcharts(): DefaultTheme.SidebarItem[] {
 			]
 		},
 		{
+			text: "饼图",
+			items: [
+				{
+					text: "标签下划线",
+					link: "pie/labelUnderline",
+				}
+			]
+		},
+		{
 			text: "雷达图",
 			items: [
 				{

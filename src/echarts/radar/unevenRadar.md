@@ -6,7 +6,7 @@ prev:
 
 # 不均等雷达图
 ## 介绍说明
-官方案例中的雷达图均为等分雷达图，即雷达图中的每一项所占比角度均为一致，本案例提供了一种自定义占比角度的雷达图实现方案。最终结果如上图所示。
+官方案例中的雷达图均为等分雷达图，即雷达图中的每一项所占比角度均为一致，本案例提供了一种自定义占比角度的雷达图实现方案。
 
 实现思路：
 1. 由于需要实现不等分的情况，所以可以使用饼图来作为雷达图的不均等分的效果
@@ -19,7 +19,6 @@ prev:
 </ClientOnly>
 
 <script setup>
-import { onMounted, ref } from 'vue';
 import unevenRadar from '../components/unevenRadar.vue'
 </script>
 
