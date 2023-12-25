@@ -9,7 +9,7 @@ prev:
 
 ## (常用)欧氏距离(Euclidean Distance)
 
-![img](distanceAndAngle/17624987-7e719ceec17d6257.png)
+![EuclideanDistance](./distanceAndAngle/EuclideanDistance.png)
 
 1. 二维平面, A(x1,y1)、B(x2,y2)
 $$ D_{Distance} = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} $$
@@ -55,7 +55,7 @@ console.log(euclideanDistance(point1, point2)); // Output: 5.196152422706632
 
 ## 曼哈顿距离(Manhattan Distance)
 
-![img](distanceAndAngle/2023-12-25 17-53-46.png)
+![ManhattanDistance](./distanceAndAngle/ManhattanDistance.png)
 
 1. 二维平面, A(x1,y1)、B(x2,y2)
 $$ D_{Distance} = |x_2 - x_1| + |y_2 - y_1 | $$
@@ -104,7 +104,7 @@ console.log(manhattanDistance(point1, point2)); // Output: 9
 
 ## 切比雪夫距离(Chebyshev Distance)
 
-![img](distanceAndAngle/2023-12-25 17-54-36.png)
+![ChebyshevDistance](./distanceAndAngle/ChebyshevDistance.png)
 
 1. 二维平面, A(x1,y1)、B(x2,y2)
 $$ D_{Distance} = max(|x_2 - x_1|,|y_2 - y_1|) $$
