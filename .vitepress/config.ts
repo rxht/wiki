@@ -98,7 +98,26 @@ function nav(): DefaultTheme.NavItem[] {
  * @return {*}  {DefaultTheme.SidebarItem[]}
  */
 function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
-	return [];
+	return [
+		{
+			text: '基础',
+			items: [
+				{
+					text: '模块化',
+					link: 'base/module'
+				}
+			]
+		},
+		{
+			text: '进阶',
+			items: [
+				{
+					text: '多进程',
+					link: 'advanced/multithreading'
+				}
+			]
+		}
+	];
 }
 
 /**
