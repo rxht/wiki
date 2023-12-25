@@ -6,10 +6,10 @@
 
 在直角座标系中，若顶点的座标分别为
 
-$$ {\displaystyle (x_{1},y_{1})}、{\displaystyle (x_{2},y_{2})}、{\displaystyle (x_{3},y_{3})} $$
+$$ {\displaystyle (x_{1},y_{1},z_{1})}、{\displaystyle (x_{2},y_{2},z_{2})}、{\displaystyle (x_{3},y_{3},z_{3})} $$
 
 则内心的座标为：
-$$ {\displaystyle ({\frac {ax_{1}+bx_{2}+cx_{3}}{a+b+c}},{\frac {ay_{1}+by_{2}+cy_{3}}{a+b+c}})} $$
+$$ {\displaystyle ({\frac {ax_{1}+bx_{2}+cx_{3}}{a+b+c}},{\frac {ay_{1}+by_{2}+cy_{3}}{a+b+c}},{\frac {az_{1}+bz_{2}+cz_{3}}{a+b+c}})} $$
 
 ## 实现（3维版本）
 ```javascript
