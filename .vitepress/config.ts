@@ -224,6 +224,15 @@ function sidebarFable(): DefaultTheme.SidebarItem[] {
 function sidebarEcharts(): DefaultTheme.SidebarItem[] {
 	return [
 		{
+			text: "折线图",
+			items: [
+				{
+					text: "y轴范围动态等分",
+					link: "line/dynamicBisection"
+				}
+			]
+		},
+		{
 			text: "雷达图",
 			items: [
 				{
