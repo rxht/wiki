@@ -67,8 +67,8 @@ export default defineConfig({
 	},
 	vite: {
 		ssr: {
-      noExternal: ['echarts'],
-    },
+			noExternal: ['echarts'],
+		},
 	},
 	markdown: {
 		math: true
@@ -83,10 +83,20 @@ export default defineConfig({
  */
 function nav(): DefaultTheme.NavItem[] {
 	return [
-		{ text: "前端手册", link: "/font-end/" },
-		{ text: "后端手册", link: "/back-end/" },
 		{ text: "UI组件库", link: "https://rxht.github.io/ui/" },
 		{ text: "合集", link: "/compilation/" },
+		{
+			text: "友情链接", items: [
+				{
+					text: "测试 - Balance",
+					link: "https://heshiqi1.github.io/blog/"
+				},
+				{
+					text: "前端 - Chatty garden",
+					link: "https://yyi0708.github.io/chatty-garden/"
+				}
+			]
+		},
 	];
 }
 

@@ -6,7 +6,13 @@ prev:
 
 # 不均等雷达图
 ## 介绍说明
-官方案例中的雷达图均为等分雷达图，即雷达图中的每一项所占比角度均为一致，本案例提供了一种自定义占比角度的雷达图实现方案。
+官方案例中的雷达图均为等分雷达图，即雷达图中的每一项所占比角度均为一致。
+
+<ClientOnly>
+  <unevenRadar isDefault/>
+</ClientOnly>
+
+本案例提供了一种自定义占比角度的雷达图实现方案。
 
 实现思路：
 1. 由于需要实现不等分的情况，所以可以使用饼图来作为雷达图的不均等分的效果
@@ -15,7 +21,7 @@ prev:
 
 ## 最终输出：
 <ClientOnly>
-  <unevenRadar />
+  <unevenRadar isSelf/>
 </ClientOnly>
 
 <script setup>
@@ -77,10 +83,6 @@ for (let index = 0; index < baseData.length; index++) {
   item.lineAngle = (prev.lineAngle ?? 0) + _angle
 }
 myChart.setOption({
-  title: {
-    left: 'center',
-    text: `min: ${minValue}, max: ${maxValue}`
-  },
   angleAxis: {  // 极坐标系的角度轴。
     type: 'value',
     silent: true,

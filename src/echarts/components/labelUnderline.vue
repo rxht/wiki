@@ -1,13 +1,13 @@
 <template>
   <section class="container">
-    <div v-if="props.isDefault" ref="leftChart" class="charts"></div>
-    <div v-if="props.isSelf" ref="rightChart" class="charts"></div>
+    <div v-if="props.isDefault" ref="leftChartDom" class="charts"></div>
+    <div v-if="props.isSelf" ref="rightChartDom" class="charts"></div>
   </section>
 </template>
 
 <script lang="ts" setup>
 
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted, shallowRef } from "vue";
 import * as echarts from "echarts";
 
 interface Props {
@@ -33,9 +33,10 @@ const data = [
   { name: 'name04', value: 70.8 },
   { name: 'name05', value: 71.2 }
 ]
-const leftChart = ref();
+const leftChartDom = ref();
+const leftCart = shallowRef<echarts.ECharts>()
 const leftCartRender = () => {
-  const myChart = echarts.init(leftChart.value);
+  leftCart.value = echarts.init(leftChartDom.value);
   const options = {
     series: [
       {
@@ -44,12 +45,13 @@ const leftCartRender = () => {
       }
     ]
   };
-  myChart.setOption(options)
+  leftCart.value.setOption(options)
 }
 
-const rightChart = ref();
+const rightChartDom = ref();
+const rightChart = shallowRef<echarts.ECharts>()
 const rightCartRender = () => {
-  const myChart = echarts.init(rightChart.value);
+  rightChart.value = echarts.init(rightChartDom.value);
   const options = {
     series: [
       {
@@ -72,8 +74,19 @@ const rightCartRender = () => {
       }
     ]
   };
-  myChart.setOption(options)
+  rightChart.value.setOption(options)
 }
+
+onUnmounted(() => {
+  if (leftCart.value) {
+    leftCart.value.clear()
+    leftCart.value.dispose()
+  }
+  if (rightChart.value) {
+    rightChart.value.clear()
+    rightChart.value.dispose()
+  }
+})
 </script>
 
 <style scoped>
