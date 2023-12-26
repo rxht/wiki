@@ -252,6 +252,15 @@ function sidebarEcharts(): DefaultTheme.SidebarItem[] {
 			]
 		},
 		{
+			text: "柱状图",
+			items: [
+				{
+					text: "子弹图",
+					link: "bar/bullet"
+				}
+			]
+		},
+		{
 			text: "饼图",
 			items: [
 				{
