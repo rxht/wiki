@@ -124,6 +124,14 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 				{
 					text: '多进程',
 					link: 'advanced/multithreading'
+				},
+				{
+					text: '浏览器底层原理',
+					link: 'advanced/browserPrinciples'
+				},
+				{
+					text: 'HTTP 请求过程',
+					link: 'advanced/HTTP_RequestProcess'
 				}
 			]
 		},
