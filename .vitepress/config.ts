@@ -132,7 +132,11 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 				{
 					text: 'HTTP 请求过程',
 					link: 'advanced/HTTP_RequestProcess'
-				}
+				},
+				{
+					text: '事件循环机制',
+					link: 'advanced/eventLoop'
+				},
 			]
 		},
 		{

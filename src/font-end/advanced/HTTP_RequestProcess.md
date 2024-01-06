@@ -1,8 +1,3 @@
----
-prev:
-  text: '返回前端手册'
-  link: '../'
----
 
 # HTTP 请求过程
 > [渲染页面：浏览器的工作原理](https://developer.mozilla.org/zh-CN/docs/Web/Performance/How_browsers_work)
