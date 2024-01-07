@@ -66,6 +66,9 @@ export default defineConfig({
 		},
 	},
 	vite: {
+		assetsInclude: [
+			"**/*.awebp"
+		],
 		ssr: {
 			noExternal: ['echarts'],
 		},
