@@ -154,6 +154,15 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 			]
 		},
 		{
+			text: '优化',
+			items: [
+				{
+					text: 'Core Web Vitals',
+					link: 'optimize/CoreWebVitals'
+				}
+			]
+		},
+		{
 			text: '架构',
 			items: [
 				{
