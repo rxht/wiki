@@ -86,3 +86,22 @@ new PerformanceObserver((entryList) => {
 
 ![CLS](CoreWebVitals/image-20240107114619862.png)
 
+
+Google开发的 所有工具 都支持Core Web Vitals的测量。工具如下：
+
+1. Lighthouse
+2. PageSpeed Insights
+3. Chrome DevTools
+4. Search Console
+5. web.dev’s提供的测量工具
+6. Web Vitals扩展
+7. Chrome UX Report API
+
+**工具：思考与总结**
+
+首先我们可以使用Lighthouse，在本地进行测量，根据报告给出的一些建议进行优化；
+发布之后，我们可以使用PageSpeed Insights去看下线上的性能情况；
+接着，我们可以使用Chrome User Experience Report API去捞取线上过去28天的数据；
+发现数据有异常，我们可以使用DevTools工具进行具体代码定位分析；
+使用Search Console’s Core Web Vitals report查看网站功能整体情况；
+使用Web Vitals扩展方便的看页面核心指标情况；

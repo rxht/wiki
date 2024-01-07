@@ -159,6 +159,10 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 				{
 					text: 'Core Web Vitals',
 					link: 'optimize/CoreWebVitals'
+				},
+				{
+					text: '项目优化',
+					link: 'optimize/Project'
 				}
 			]
 		},
