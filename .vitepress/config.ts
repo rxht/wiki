@@ -122,7 +122,7 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 			text: '进阶',
 			items: [
 				{
-					text: '多进程',
+					text: 'JS 多进程',
 					link: 'advanced/multithreading'
 				},
 				{
@@ -130,20 +130,34 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 					link: 'advanced/browserPrinciples'
 				},
 				{
-					text: 'HTTP 请求过程',
-					link: 'advanced/HTTP_RequestProcess'
-				},
-				{
 					text: '事件循环机制',
 					link: 'advanced/eventLoop'
 				},
+				{
+					text: 'HTTP',
+					collapsed: true,
+					items: [
+						{
+							text: '缓存',
+							link: 'HTTP/Cache'
+						},
+						{
+							text: '预检请求',
+							link: 'HTTP/PreRequest'
+						},
+						{
+							text: '请求过程',
+							link: 'HTTP/RequestProcess'
+						}
+					]
+				}
 			]
 		},
 		{
 			text: '架构',
 			items: [
 				{
-					text: 'Vue引入原子设计',
+					text: 'Vue 引入原子设计',
 					link: 'architecture/atomDesign'
 				}
 			]

@@ -2,19 +2,19 @@
 # HTTP 请求过程
 > [渲染页面：浏览器的工作原理](https://developer.mozilla.org/zh-CN/docs/Web/Performance/How_browsers_work)
 
-1. 当我们在浏览器的地址栏输入内容按下回车时，[浏览器进程 (Browser Process)](./browserPrinciples#浏览器进程-browser-process) 会将对应的URL交给其子线程 (网络线程)；
+1. 当我们在浏览器的地址栏输入内容按下回车时，[浏览器进程 (Browser Process)](../advanced/browserPrinciples#浏览器进程-browser-process) 会将对应的URL交给其子线程 (网络线程)；
 
-2. 网络线程发起请求（如果输入的为IP地址则直接发起 [TCP握手](./HTTP_RequestProcess#tcp-握手) 请求。如果为域名则发起 [DNS](./HTTP_RequestProcess#dns-查询) 查询得到对应的，再发起[TCP握手](./HTTP_RequestProcess#tcp-握手) 请求），最后发起资源请求；
+2. 网络线程发起请求（如果输入的为IP地址则直接发起 [TCP握手](./RequestProcess#tcp-握手) 请求。如果为域名则发起 [DNS](./RequestProcess#dns-查询) 查询得到对应的，再发起[TCP握手](./RequestProcess#tcp-握手) 请求），最后发起资源请求；
 
-3. 同时创建启动一个 [渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process)；
+3. 同时创建启动一个 [渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process)；
 
-4. 在得到对应的资源数据（如果返回重定向的话则重新启动一个 [渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process)，关闭原本创建启动的 [渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process)）后将数据传给对应的 [渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process)；
+4. 在得到对应的资源数据（如果返回重定向的话则重新启动一个 [渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process)，关闭原本创建启动的 [渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process)）后将数据传给对应的 [渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process)；
 
-5. 同时 [浏览器进程 (Browser Process)](./browserPrinciples#浏览器进程-browser-process) 会发送IPC消息告诉[渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process)确认导航；
+5. 同时 [浏览器进程 (Browser Process)](../advanced/browserPrinciples#浏览器进程-browser-process) 会发送IPC消息告诉[渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process)确认导航；
 
-6. [渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process) 接收到数据后发送IPC消息告诉[浏览器进程 (Browser Process)](./browserPrinciples#浏览器进程-browser-process) 导航已经提交，页面开始加载；
+6. [渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process) 接收到数据后发送IPC消息告诉[浏览器进程 (Browser Process)](../advanced/browserPrinciples#浏览器进程-browser-process) 导航已经提交，页面开始加载；
 
-7. [渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process) 开始解析：
+7. [渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process) 开始解析：
 
    - **HTML 解析**
 
@@ -66,7 +66,7 @@
 
      当页面继续加载资源时，可能会发生回流（回想一下我们迟到的示例图像），回流会触发重新绘制和重新组合。如果我们定义了图像的大小，就不需要重新绘制，只需要重新绘制需要重新绘制的层，并在必要时进行合成。但我们没有包括图像大小！从服务器获取图像后，渲染过程将返回到布局步骤并从那里重新开始。
 
-8. [渲染进程 (Renderer Process)](./browserPrinciples#渲染进程-renderer-process) 解析完页面数据后会触发onload事件，并向 [浏览器进程 (Browser Process)](./browserPrinciples#浏览器进程-browser-process) 发送IPC消息告诉 [浏览器进程 (Browser Process)](./browserPrinciples#浏览器进程-browser-process) 页面加载完成；
+8. [渲染进程 (Renderer Process)](../advanced/browserPrinciples#渲染进程-renderer-process) 解析完页面数据后会触发onload事件，并向 [浏览器进程 (Browser Process)](../advanced/browserPrinciples#浏览器进程-browser-process) 发送IPC消息告诉 [浏览器进程 (Browser Process)](../advanced/browserPrinciples#浏览器进程-browser-process) 页面加载完成；
 
 
 ## [DNS 查询](https://developer.mozilla.org/zh-CN/docs/Glossary/DNS)
