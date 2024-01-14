@@ -205,6 +205,11 @@ class RXH extends EventDispatcher {
   }
 
   destroy() {
+    this.scene.traverse((child) => this.scene.remove(child))
+    this.scene.clear()
+    this.renderer.forceContextLoss()
+    this.renderer.dispose()
+    this.modelList.length = 0
   }
 }
 
