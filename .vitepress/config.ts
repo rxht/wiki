@@ -52,6 +52,7 @@ export default defineConfig({
 			"/back-end/Matlab/": { base: "/back-end/Matlab/", items: sidebarMatlab() },
 			"/fable/": { base: "/fable/", items: sidebarFable() },
 			"/echarts/": { base: "/echarts/", items: sidebarEcharts() },
+			"/three/": { base: "/three/", items: sidebarThree() },
 			"/maths/": { base: "/maths/", items: sidebarMaths() },
 		},
 		// 编辑链接允许您显示用于编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面的链接。有关更多详细信息，请参阅默认主题：编辑链接。
@@ -135,6 +136,10 @@ function sidebarFontEnd(): DefaultTheme.SidebarItem[] {
 				{
 					text: '事件循环机制',
 					link: 'advanced/eventLoop'
+				},
+				{
+					text: '前端基建',
+					link: 'advanced/Infrastructure'
 				},
 				{
 					text: 'HTTP',
@@ -320,6 +325,20 @@ function sidebarEcharts(): DefaultTheme.SidebarItem[] {
 				}
 			]
 		}
+	]
+}
+
+function sidebarThree(): DefaultTheme.SidebarItem[] {
+	return [
+		{
+			text: "案例",
+			items: [
+				{
+					text: "居中四方体",
+					link: "example/centeredCube"
+				}
+			]
+		},
 	]
 }
 

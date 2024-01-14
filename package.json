@@ -20,13 +20,16 @@
   "repository": "https://github.com/rxht/wiki",
   "devDependencies": {
     "@types/node": "^20.10.5",
+    "@types/three": "^0.160.0",
     "bumpp": "^9.2.1",
     "czg": "^1.8.0",
     "markdown-it-mathjax3": "^4.3.2",
     "vitepress": "1.0.0-rc.32"
   },
   "dependencies": {
+    "camera-controls": "^2.7.3",
     "echarts": "^5.4.3",
+    "three": "^0.160.0",
     "vue": "^3.3.13"
   }
 }
