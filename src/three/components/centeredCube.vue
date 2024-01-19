@@ -1,10 +1,10 @@
 <template>
-  <div class="container" ref="container"></div>
+  <div class="container" ref="container" />
 </template>
 
 <script lang="ts" setup>
 
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted } from "vue";
 import * as THREE from 'three'
 import {
   EventDispatcher,
@@ -224,9 +224,6 @@ onMounted(() => {
   rxh.run()
 })
 
-onUnmounted(() => {
-  rxh?.destroy()
-})
 </script>
 
 <style scoped>

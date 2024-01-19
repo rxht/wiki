@@ -73,6 +73,10 @@ export default defineConfig({
 		ssr: {
 			noExternal: ['echarts'],
 		},
+		server: {
+			host: '0.0.0.0',
+			port: 0
+		}
 	},
 	markdown: {
 		math: true
@@ -328,6 +332,12 @@ function sidebarEcharts(): DefaultTheme.SidebarItem[] {
 	]
 }
 
+/**
+ * @description Three左侧目录结构
+ * @author rxht
+ * @date 2024-01-19
+ * @returns {*}  {DefaultTheme.SidebarItem[]}
+ */
 function sidebarThree(): DefaultTheme.SidebarItem[] {
 	return [
 		{
@@ -336,6 +346,10 @@ function sidebarThree(): DefaultTheme.SidebarItem[] {
 				{
 					text: "居中四方体",
 					link: "example/centeredCube"
+				},
+				{
+					text: "自定义标签",
+					link: "example/customLabel"
 				}
 			]
 		},
