@@ -1,6 +1,5 @@
 
 # 自定义标签
-asd
 <ClientOnly>
   <customLabel />
 </ClientOnly>

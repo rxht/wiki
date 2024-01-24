@@ -53,6 +53,7 @@ export default defineConfig({
 			"/fable/": { base: "/fable/", items: sidebarFable() },
 			"/echarts/": { base: "/echarts/", items: sidebarEcharts() },
 			"/three/": { base: "/three/", items: sidebarThree() },
+			"/cesium/": { base: "/cesium/", items: sidebarCesium() },
 			"/maths/": { base: "/maths/", items: sidebarMaths() },
 		},
 		// 编辑链接允许您显示用于编辑 Git 管理服务（例如 GitHub 或 GitLab）上的页面的链接。有关更多详细信息，请参阅默认主题：编辑链接。
@@ -350,6 +351,26 @@ function sidebarThree(): DefaultTheme.SidebarItem[] {
 				{
 					text: "自定义标签",
 					link: "example/customLabel"
+				}
+			]
+		},
+	]
+}
+
+/**
+ * @description Cesium左侧目录结构
+ * @author rxht
+ * @date 2024-01-24
+ * @returns {*}  {DefaultTheme.SidebarItem[]}
+ */
+function sidebarCesium(): DefaultTheme.SidebarItem[] {
+	return [
+		{
+			text: "基础",
+			items: [
+				{
+					text: "vite环境搭建Cesium",
+					link: "base/quickstart"
 				}
 			]
 		},
